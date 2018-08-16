@@ -6,7 +6,7 @@
                 	"pages"        : [1, [1, 8]],
                 	"categories"   : []
                 },
-                "ECZEMA/DERMATITIS"    : {
+                "ECZEMA DERMATITIS"    : {
                 	"pages"        : [2, [1, 163]],
                 	"categories"   : {
                 		"Exogenous____Contact_dermatitis"                                 : [],
@@ -21,7 +21,7 @@
                 		"Endogenous____Stasis_eczema"                                     : [2, [127, 129]],
                 		"Hand_eczema____Acute_dermatitis"                                 : [2, [130, 135]],
                 		"Hand_eczema____Chronic_dermatitis"                               : [2, [136, 154]],
-                		"Hand_eczema____Contact_urticaria/Protein_contact_dermatits"      : [2, [155, 158]],
+                		"Hand_eczema____Contact_urticaria__Protein_contact_dermatits"     : [2, [155, 158]],
                 		"Hand_eczema____Differential_diagnoses_of_hand_eczema"	          : [2, [159, 163]]
                 	}
                 },
