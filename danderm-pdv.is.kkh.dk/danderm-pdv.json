@@ -1,0 +1,137 @@
+{
+	"database"             : "An Atlas of Clinical Dermatology",
+	"website"              : "http://www.danderm-pdv.is.kkh.dk/atlas/index.html",
+	"entries"              : {
+                {
+                       	"GENERAL ASPECTS"      : {
+                		"pages"        : [1, [1, 8]],
+                		"categories"   : []
+                	},
+                	"ECZEMA/DERMATITIS"    : {
+                		"pages"        : [2, [1, 163]],
+                		"categories"   : {
+                			"Exogenous____Contact_dermatitis"                                 : [],
+                			"Exogenous____Irritant_contact_dermatitis"                        : [2, [1, 38]],
+                			"Exogenous____Allergic_contact_dermatitis"                        : [2, [39, 81]],
+                			"Exogenous____Phototoxic_contact_dermatitis"                      : [2, [82, 86]],
+                			"Exogenous____Lichen_simplex_chronicus"                           : [2, [87, 90]],
+                			"Exogenous____Eczema_Craquelee"                                   : [2, [91, 97]],
+                			"Endogenous____Atopic_dermatitis"                                 : [2, [98, 108]],
+                			"Endogenous____Seborrhoic_dermatitis"                             : [2, [109, 121]],
+                			"Endogenous____Nummular_eczema"                                   : [2, [122, 126]],
+                			"Endogenous____Stasis_eczema"                                     : [2, [127, 129]],
+                			"Hand_eczema____Acute_dermatitis"                                 : [2, [130, 135]],
+                			"Hand_eczema____Chronic_dermatitis"                               : [2, [136, 154]],
+                			"Hand_eczema____Contact_urticaria/Protein_contact_dermatits"      : [2, [155, 158]],
+                			"Hand_eczema____Differential_diagnoses_of_hand_eczema"	          : [2, [159, 163]]
+                		}
+                	},
+                	"DRUG ERUPTIONS, REACTIONS TO COLD AND SUN, URTICARIA, REACTIVE ERYTHEMAS AND EXANTHEMAS, BULLOUS DISEASES, ATROPHIC AND DYSTROPHIC DISEASES"                            : {
+                		"pages"        : [3, [1, 178]],
+                		"categories"   : {
+                                        "Drug_eruptions"                                                  : [3, [1, 36]],
+                                        "Reactions_to_cold_and_sun"                                       : [3, [37, 49]],
+                                        "Urticaria"	                                                  : [3, [50, 67]],
+                                        "Urticaria_pigmentosa"                                            : [3, [68, 73]],
+                                        "Reactive_erythemas_and_exanthemas____Viral_exanthemas"	          : [3, [74, 94]],
+                                        "Reactive_erythemas_and_exanthemas____Miliaria"                   : [3, [95, 99]],
+                                        "Reactive_erythemas_and_exanthemas____Erythema_multiforme"        : [3, [100, 110]],
+                                        "Reactive_erythemas_and_exanthemas____Reactions_to_bacterial_infections"   : [3, [111, 111]],
+                                        "Reactive_erythemas_and_exanthemas____Erythema_nodosum"           : [3, [112, 114]],
+                                        "Reactive_erythemas_and_exanthemas____Erythema_induratum"         : [3, [115, 115]],
+                                        "Reactive_erythemas_and_exanthemas____Lichen_planus"              : [3, [116, 132]],
+                                        "Reactive_erythemas_and_exanthemas____Lichen_nitidus"             : [3, [133, 135]],
+                                        "Bullous_diseases"                                                : [3, [136, 172]],
+                                        "Atrophic_and_dystrophic_diseases"                                : [3, [173, 178]]
+                		}
+                	},
+                	"DISEASES OF THE HAIR, NAILS AND OTHER SKIN DERIVATIVES. PURPURA"  : {
+                		"pages"        : [4, [1, 176]],
+                		"categories"   : {
+                                        "Hair_and_scalp____Cutis_verticis_gyrata"                         : [4, [1, 1]],
+                                        "Hair_and_scalp____Hypertrichosis"                                : [4, [2, 8]],
+                                        "Hair_and_scalp____Alopecia"                                      : [],
+                                        "Hair_and_scalp____Non-scarring"                                  : [4, [9, 25]],
+                                        "Hair_and_scalp____Scarring"                                      : [4, [26, 30]],
+                                        "Hair_and_scalp____Diseases_of_the_hair_shaft"                    : [4, [31, 34]],
+                                        "Hair_and_scalp____Depigmentation_of_hair"                        : [4, [35, 37]],
+                                        "Nails____Leukonychia"                                            : [4, [38, 39]],
+                                        "Nails____Malformations"                                          : [4, [40, 49]],
+                                        "Nails____Onycholysis"                                            : [4, [50, 52]],
+                                        "Nails____Half-and-half_nails"                                    : [4, [53, 53]],
+                                        "Nails____Infections"                                             : [],
+                                        "Nails____Bacterial"                                              : [4, [54, 60]],
+                                        "Nails____Fungal"                                                 : [4, [61, 66]],
+                                        "Nails____Inflammatory_nail_changes"                              : [4, [67, 77]],
+                                        "Nails____Nail_changes_associated_with_other_diseases"            : [4, [78, 87]],
+                                        "Nails____Traumatic_nail_changes"                                 : [4, [88, 93]],
+                                        "Nails____Dystrophia_mediana_canaliformis"                        : [4, [94, 94]],
+                                        "Nails____Nail_changes_due_to_tumours"                            : [4, [95, 96]],
+                                        "Acne_and_related_diseases____Acne"                               : [3, [97, 116]],
+                                        "Acne_and_related_diseases____Scarring_following_acne"            : [4, [133, 135]],
+                                        "Acne_and_related_diseases____Rosacea_and_perioral_dermatitis"    : [4, [136, 152]],
+                                        "Acne_and_related_diseases____Hidradenitis_suppurativa"           : [4, [153, 155]],
+                                        "Diseases_of_the_sweat_glands"                                    : [4, [156, 160]],
+                                        "Pigmentary_disorders"                                            : [4, [161, 163]],
+                                        "Purpura"                                                         : [4, [164, 176]]
+                		}
+                	},
+                        "GENODERMATOSES. CONGENITAL SKIN DISEASES.SKIN LESIONS IN INTERNAL DISEASE.METABOLIC AND ENDOCRINE SKIN DISEASES" : {
+                		"pages"        : [5, [1, 136]],
+                                "categories"   : {
+                                        "Psoriasis"                                                       : [5, [1, 43]],
+                                        "Pustular_psoriasis_and_other_pustular_disorders"                 : [5, [44, 53]],
+                                        "Ichthyoses"                                                      : [5, [54, 61]],
+                                        "Keratodermas"                                                    : [5, [62, 83]],
+                                        "Skin_lesions_in_internal_disease"                                : [5, [84, 136]]
+                		}
+                	},
+                	"COLLAGEN DISEASES. VASCULAR DISORDERS. ULCERS. ORAL PATHOLOGY" : {
+                		"pages"        : [6, [1, 138]],
+                		"categories"   : {
+                                        "Collagen_diseases____Lupus_erythematosus"                        : [6, [1, 17]],
+                                        "Collagen_diseases____Dermatomyositis"                            : [6, [18, 26]],
+                                        "Collagen_diseases____Scleroderma"                                : [6, [27, 35]],
+                                        "Collagen_diseases____Mixed_connective_tissue_disease"            : [6, [36, 37]],
+                                        "Collagen_diseases____Raynaud's_syndrome"                         : [6, [38, 41]],
+                                        "Collagen_diseases____Vibration_induced_white_fingers"            : [6, [42, 43]],
+                                        "Vascular_disorders_and_ulcers.Factitial_dermatoses.Granuloma_annulare,_necrobiosis_lipoidica.Lichen_sclerosis_et_atrophicus" : [6, [44, 123]],
+                                        "Oral_pathology"                                                  : [6, [124, 138]]
+                		}
+                	},
+                	"TUMOURS OF THE SKIN. LYMPHOMAS" : {
+                		"pages"        : [7, [1, 203]],
+                		"categories"   : {
+                                        "Benign_tumours____Epidermal"                                     : [7, [1, 40]],
+                                        "Benign_tumours____Dermal"                                        : [7, [41, 58]],
+                                        "Benign_tumours____Subcutaneous"                                  : [7, [59, 62]],
+                                        "Benign_tumours____Hemangiomas"                                   : [7, [63, 84]],
+                                        "Benign_tumours____Lymphangioma"                                  : [7, [85, 87]],
+                                        "Malignant_tumours____Non-melanoma_skin_cancers_and_keratoacanthoma"  : [7, [88, 127]],
+                                        "Pigmented_lesions____Benign"                                     : [7, [128, 154]],
+                                        "Pigmented_lesions____Malignant"                                  : [7, [155, 178]],
+                                        "Benign_and_malignant_lymphomas_and_other_types_of_premalignant_and_malignant_skin_tumours"  : [7, [179, 198]],
+                                        "Cutaneous_metastases"                                            : [7, [199, 203]]
+                		}
+                	},
+                        "INFECTIOUS SKIN DISEASES AND INFESTATIONS" : {
+                		"pages"        : [8, [1, 199]],
+                		"categories"   : {
+                                        "Differential_diagnosis_between_bacterial_infection_and_Dermatophytosis"  : [8, [1, 2]],
+                                        "Bacterial_infections"                                            : [8, [3, 66]],
+                                        "Viral_infections"                                                : [8, [67, 107]],
+                                        "Skin_diseases_caused_by_fungi____Dermatophytoses"                : [8, [108, 145]],
+                                        "Skin_diseases_caused_by_fungi____Yeast infections"               : [],
+                                        "Skin_diseases_caused_by_fungi____Candidiasis"                    : [8, [146, 155]],
+                                        "Skin_diseases_caused_by_fungi____Other_yeast_infections"         : [8, [156, 160]],
+                                        "Skin_diseases_caused_by_parasites"                               : [8, [161, 195]],
+                                        "Sarcoidosis"                                                     : [8, [196, 199]]
+                		}
+                	},
+                	"GENITOPATHOLOGY" : {
+                		"pages"        : [9, [1, 23]],
+                		"categories"   : []
+                	}
+                }
+	}
+}
