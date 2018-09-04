@@ -94,7 +94,10 @@ def download_images(out_dir):
                 os.mkdir(pic_dir)
             # endif
             pic_path = '{}/{}.jpg'.format(pic_dir, pic_ctr)
-            img_download(url_t, pic_path, headers)
+            # Check if pic path exists
+            if not os.path.isfile(pic_path):
+                img_download(url_t, pic_path, headers)
+            # endif
             pic_ctr  = pic_ctr + 1
         # endfor
         index_ctr = index_ctr + 1
