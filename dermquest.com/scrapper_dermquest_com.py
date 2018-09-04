@@ -99,7 +99,7 @@ def img_download(url, dwn_path):
 #          facet           : facet is either single facet_id or list of facet ids
 #          facet_tree_dict : this is the dictionary which we get from get_facets() function above
 #          retrieval_mode  : This is one of ['lesions', 'localization', 'symptoms', 'pathos', 'diagnosis']
-def query_facets_single(facet, facet_tree_dict, retrieval_mode, max_retries=5):
+def query_facets_single(facet, facet_tree_dict, facet_flat_dict, retrieval_mode, max_retries=5):
     # All possible retrieval types supported
     retrieval_mode_type_list = list(facet_tree_dict.keys())
 
@@ -175,6 +175,8 @@ def query_facets_single(facet, facet_tree_dict, retrieval_mode, max_retries=5):
                         rtitem_id_t = str(rtitem_id_t)
                         if rtitem_id_t in facet_tree_dict[rt_k_t]:
                             rtitem_id_name = facet_tree_dict[rt_k_t][rtitem_id_t]
+                        elif rtitem_id_t in facet_flat_dict[rt_k_t]:
+                            rtitem_id_name = facet_flat_dict[rt_k_t][rtitem_id_t]
                         else:
                             rtitem_id_name = ''
                         # endif
@@ -202,7 +204,7 @@ def query_facets_single(facet, facet_tree_dict, retrieval_mode, max_retries=5):
 #          retrieval_mode  : should be one of ['lesions', 'localization', 'symptoms', 'pathos', 'diagnosis'].
 #                            By default it's diagnosis
 # NOTE: The server kicks us out after sometime, so this probably need to be run multiple times
-def query_facets(facet_tree_dict, out_dir, retrieval_mode='diagnosis', max_retries=5):
+def query_facets(facet_tree_dict, facet_flat_dict, out_dir, retrieval_mode='diagnosis', max_retries=5):
     # All possible retrieval types supported
     retrieval_mode_type_list = list(facet_tree_dict.keys())
 
@@ -227,7 +229,7 @@ def query_facets(facet_tree_dict, out_dir, retrieval_mode='diagnosis', max_retri
         # endif
 
         # Read all pages for this facet_id
-        result_t = query_facets_single(facet_id_t, facet_tree_dict, retrieval_mode, max_retries)
+        result_t = query_facets_single(facet_id_t, facet_tree_dict, facet_flat_dict, retrieval_mode, max_retries)
 
         # Write results
         print('Writing results for facet_id {} to {}'.format(facet_id_t, file_t))
@@ -239,6 +241,8 @@ def build_db(out_dir, retrieval_mode):
     facets_db_dir = __facets_dbdir(out_dir, retrieval_mode)
     facets_tree_dict_file = '{}/facets_tree_dict.json'.format(out_dir)
     facets_flat_dict_file = '{}/facets_flat_dict.json'.format(out_dir)
+
+    mkdir(out_dir)
 
     if not os.path.exists(facets_tree_dict_file) or not os.path.exists(facets_flat_dict_file):
         print('Either {} or {} doesnot exit. Downloading facets metadata.'.format(facets_tree_dict_file, facets_flat_dict_file))
@@ -252,7 +256,7 @@ def build_db(out_dir, retrieval_mode):
     # endif
 
     # Call query
-    query_facets(facet_tree_dict, facets_db_dir, retrieval_mode)
+    query_facets(facet_tree_dict, facet_flat_dict, facets_db_dir, retrieval_mode)
 
     # Return dbdir
     return facets_db_dir
