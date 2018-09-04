@@ -2,6 +2,7 @@ import requests
 import os, sys
 import json
 import copy
+import glob
 #from PIL import image
 
 facet_url = 'https://www.dermquest.com/Services/facetData.ashx'
@@ -18,6 +19,13 @@ def rp(dir):
 
 def __gd(x):
     return x.replace('/', '_____').replace(',', '______')
+# enddef
+
+def __facets_dbdir(out_dir, retrieval_mode):
+    return '{}/facets_{}'.format(out_dir, retrieval_mode)
+# enddef
+def __facets_imgdir(out_dir, retrieval_mode):
+    return '{}/images_{}'.format(out_dir, retrieval_mode)
 # enddef
 
 # For recursive node parsing
@@ -227,9 +235,8 @@ def query_facets(facet_tree_dict, out_dir, retrieval_mode='diagnosis', max_retri
     # endfor
 # enddef
 
-def __main__():
-    out_dir = './facets_db'
-    facets_db_dir = '{}/facets_diagnosis'.format(out_dir)
+def build_db(out_dir, retrieval_mode):
+    facets_db_dir = __facets_dbdir(out_dir, retrieval_mode)
     facets_tree_dict_file = '{}/facets_tree_dict.json'.format(out_dir)
     facets_flat_dict_file = '{}/facets_flat_dict.json'.format(out_dir)
 
@@ -245,7 +252,71 @@ def __main__():
     # endif
 
     # Call query
-    query_facets(facet_tree_dict, facets_db_dir, 'diagnosis')
+    query_facets(facet_tree_dict, facets_db_dir, retrieval_mode)
+
+    # Return dbdir
+    return facets_db_dir
 # enddef
 
-__main__()
+def download_images_single_json(json_file, out_dir):
+    res_json   = json.load(open(json_file, 'r'))
+    cases_list = res_json["result"]
+
+    # Create output directory if it doesnot exist already
+    mkdir(out_dir)
+
+    for case_t in cases_list:
+        # get image url
+        im_file_name  = case_t["FileName"]
+        im_fetch_url  = 'https://www.dermquest.com/imagelibrary/large/{}'.format(im_file_name)
+        dst_im_path   = '{}/{}'.format(out_dir, im_file_name)
+        dst_imm_path  = '{}/{}.json'.format(out_dir, im_file_name)
+
+        # Check if both image file and metadata file exist.
+        # If both exist, skip
+        if os.path.exists(dst_im_path) and os.path.exists(dst_imm_path):
+            print('Both image and metadata files exist for {}. Skipping !!'.format(im_file_name))
+            continue
+        else:
+            print('Downloading {}'.format(im_file_name))
+        # endif
+
+        # Download image
+        img_download(im_fetch_url, dst_im_path)
+        # Save metadata json
+        json.dump(case_t, open(dst_imm_path, 'w'))
+    # endfor
+# enddef
+
+def download_images(json_dir, out_dir):
+    # Some checks
+    if not os.path.isdir(json_dir):
+        print('json_dir is not valid dir.')
+        return
+    # endif
+
+    mkdir(out_dir)
+
+    json_list = glob.glob(json_dir + '/*.json')
+    for json_t in json_list:
+        tgt_dir_name = os.path.splitext(os.path.basename(json_t))[0]
+        tgt_dir_t = '{}/{}'.format(out_dir, tgt_dir_name)
+
+        # Download images for this json
+        mkdir(tgt_dir_t)
+        print('Downloading cases for {}'.format(json_t))
+        download_images_single_json(json_t, tgt_dir_t)
+    # endfor
+# enddef
+
+def main():
+    out_dir = './facets_db'
+    retrieval_mode = 'diagnosis'
+
+    # Build database first. If the db files are already there, it just skips
+    json_db_dir = build_db(out_dir, retrieval_mode)
+    # Download images
+    download_images(json_db_dir, __facets_imgdir(out_dir, retrieval_mode))
+# enddef
+
+main()
