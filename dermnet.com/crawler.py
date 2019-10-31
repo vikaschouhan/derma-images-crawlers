@@ -137,12 +137,25 @@ def populate_stage2_links(stage1_links):
     return fine_gr_dict
 # enddef
 
-def populate_stage3_links(stage2_links):
+def populate_stage3_links(stage2_links, out_dir):
     fine_gr_dict = {}
     for type_name in stage2_links:
         fine_gr_dict[type_name] = {}
         for subtype_name in stage2_links[type_name]:
-            fine_links = photo2links(stage2_links[type_name][subtype_name])
+            # Make temp dir if not done already
+            stage3_tmp_dir = '{}/stage3_tmp_files'.format(out_dir)
+            os.makedirs(stage3_tmp_dir, exist_ok=True)
+
+            # Trying to load from temporary pickle file, else download
+            stage3_subfile     = '{}/{}.pkl'.format(stage3_tmp_dir, subtype_name)
+            if os.path.exists(stage3_subfile):
+                fine_links = pickle.load(open(stage3_subfile, 'rb'))
+            else:
+                fine_links = photo2links(stage2_links[type_name][subtype_name])
+                # Save as pickle file
+                pickle.dump(fine_links, open(stage3_subfile, 'wb'))
+            # endif
+
             fine_gr_dict[type_name][subtype_name] = fine_links
         # endfor
     # endfor
@@ -192,7 +205,7 @@ def main(out_dir):
     else:
         print('{} not found. Crawling.'.format(stage3_links_file))
         # Get top level links
-        stage3_links = populate_stage3_links(stage2_links)
+        stage3_links = populate_stage3_links(stage2_links, out_dir)
         print('Saving stage3_links in {}'.format(stage3_links_file))
         pickle.dump(stage3_links, open(stage3_links_file, 'wb'))
     # endif
